@@ -1,11 +1,9 @@
-import React, { useEffect, useState, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import Product from './Product';
-//import { Link } from 'react-router-dom';
-//import data from '../data';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Row, Col } from 'react-bootstrap';
+import { Helmet } from 'react-helmet-async';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -40,6 +38,9 @@ function HomeScreen() {
 
     return (
         <div>
+            <Helmet>
+                <title>Amazona</title>
+            </Helmet>
             <h1>Featured Products</h1>
             <div className="products">
                 {loading ? (
