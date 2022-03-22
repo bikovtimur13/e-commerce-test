@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Card, ListGroup, Badge, Row, Col, Button } from 'react-bootstrap';
@@ -7,6 +7,7 @@ import Rating from './Rating';
 import MessageBox from './MessageBox';
 import LoadingBox from './LoadingBox';
 import { getError } from '../utils';
+import { Store } from '../Store';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -39,6 +40,14 @@ function ProductScreen() {
         };
         fetchData();
     }, [slug]);
+
+    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const addToCartHandler = () => {
+        ctxDispatch({
+            type: 'CART_ADD_ITEM',
+            payload: { ...product, quantity: 1 },
+        });
+    };
 
     return (
         loading ? (
@@ -100,7 +109,7 @@ function ProductScreen() {
                                     {product.countInStock > 0 && (
                                         <ListGroup.Item>
                                             <div className="d-grid">
-                                                <Button variant="primary">Add to Cart</Button>
+                                                <Button onClick={addToCartHandler} variant="primary">Add to Cart</Button>
                                             </div>
                                         </ListGroup.Item>
                                     )}
