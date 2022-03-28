@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import './App.css';
 import HomeScreen from './components/HomeScreen';
 import ProductScreen from './components/ProductScreen';
+import CartScreen from './components/CartScreen';
 import { Navbar, Container, Nav, Badge } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Store } from './Store';
@@ -37,6 +38,7 @@ function App() {
           <Container className="mt-3">
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
+              <Route path="cart" element={<CartScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
