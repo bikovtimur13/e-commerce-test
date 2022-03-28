@@ -3,9 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Card, ListGroup, Badge, Row, Col, Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
-import Rating from './Rating';
-import MessageBox from './MessageBox';
-import LoadingBox from './LoadingBox';
+import Rating from '../components/Rating';
+import MessageBox from '../components/MessageBox';
+import LoadingBox from '../components/LoadingBox';
 import { getError } from '../utils';
 import { Store } from '../Store';
 

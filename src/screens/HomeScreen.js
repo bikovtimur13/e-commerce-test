@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
-import Product from './Product';
-import LoadingBox from './LoadingBox';
-import MessageBox from './MessageBox';
+import Product from '../components/Product';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
 import { Row, Col } from 'react-bootstrap';
