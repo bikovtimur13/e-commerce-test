@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Store } from '../Store';
 import { Row, Col, ListGroup, Button, Card } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import MessageBox from './MessageBox';
+import MessageBox from '../components/MessageBox';
 import axios from 'axios';
 
 function CartScreen() {
@@ -26,7 +26,7 @@ function CartScreen() {
         ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
     }
     const checkoutHandler = () => {
-        navigate('signin?redirect=/shipping');
+        navigate('/signin?redirect=/shipping');
     }
     return (
         <div>
